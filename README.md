@@ -15,12 +15,12 @@
    ```bash
    git clone https://github.com/rwlqa/eggs_and_quails.git
    cd eggs_and_quails
-
+```
 2. Установите необходимые зависимости:
 
 ```bash
 pip install -r requirements.txt
-
+```
 3. Подготовка моделей:
 Создайте папку weights в корне проекта.
 Скачайте веса SAM ViT-B по официальной ссылке: https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth?spm=a2ty_o01.29997173.0.0.1de155fbdon5nj&file=sam_vit_b_01ec64.pth.
