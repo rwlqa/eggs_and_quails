@@ -23,6 +23,32 @@ pip install -r requirements.txt
 ```
 3. Подготовка моделей:
 Создайте папку weights в корне проекта.
+
 Скачайте веса SAM ViT-B по официальной ссылке: https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth?spm=a2ty_o01.29997173.0.0.1de155fbdon5nj&file=sam_vit_b_01ec64.pth.
+
 Скачайте модель классификатора tomato_rf_model.pkl по ссылке: https://drive.google.com/file/d/1CvypLtkmQhW7qmaGh5SzWRus5yYHv3dq/view?usp=sharing.
+
 Поместить веса в папку \weights в корневой папке проекта.
+
+
+##Запуск приложения
+Для запуска используйте скрипты в зависимости от вашей операционной системы:
+
+Windows: запустите файл run_windows.bat
+
+Linux / macOS: выполните команду ./run_unix.sh
+
+##Документация
+
+В репозитории также доступны следующие документы:
+
+Лабораторная_работа__1.pdf — полное описание лабораторной работы.
+
+Инструкция_по_установке_программы_.pdf — пошаговое руководство по настройке окружения.
+
+##Технологии
+PyTorch & Segment Anything (SAM)
+Scikit-learn (Random Forest)
+EasyOCR
+OpenCV, NumPy, Pandas
+Tkinter (GUI)
