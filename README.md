@@ -15,7 +15,7 @@
    ```bash
    git clone https://github.com/rwlqa/eggs_and_quails.git
    cd eggs_and_quails
-```
+
 2. Установите необходимые зависимости:
 
 ```bash
