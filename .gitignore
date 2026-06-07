@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Твои модели (чтобы не грузить гигабайты в git)
+weights/*.pth
+weights/*.pkl
+weights/*.onnx
+
+# Если захочешь использовать git-lfs позже, можно оставить weights/, но пока лучше игнорировать
+se100rvices:
+  backend:
+    build:
+      context: .
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./runs:/app/runs
+    environment:
+      - PYTHONPATH=/app
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/existing_experiments/"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+
+user: "${UID:-1000}:${GID:-1000}"
+
+  frontend:
+    build:
+      context: .
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./runs:/app/runs
+    environment:
+      - BASE_URL=http://backend:8000
+      - PYTHONPATH=/app
+    command: >
+      streamlit run ui.py
+      --server.port=8501
+      --server.address=0.0.0.0
+    depends_on:
+      backend:
+        condition: service_healthy

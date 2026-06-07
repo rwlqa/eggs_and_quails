@@ -1,0 +1,9 @@
+torch
+torchvision
+opencv-python
+segment-anything
+joblib
+pandas
+scikit-image
+easyocr
+Pillow
